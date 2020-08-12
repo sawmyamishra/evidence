@@ -8,6 +8,7 @@ ADD apktool.jar ./apktool.jar
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && \
+    apt install -y golang git curl wget && \
     apt-get install apktool -y && \
     apt-get install apache2 -y && \
     apt-get install nginx -y && \
