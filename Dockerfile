@@ -4,6 +4,9 @@ ENV TZ=Asia
 
 ADD evidence.apk ./evidence.apk
 ADD apktool.jar ./apktool.jar
+ADD exhibit.apk ./exhibit.apk
+ADD samplee.xml ./samplee.xml
+ADD AndroidManifestsample.xml ./AndroidManifestsample.xml
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
