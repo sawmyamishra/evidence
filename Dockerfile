@@ -13,6 +13,15 @@ RUN apt-get update && \
     apt-get install nginx -y && \
     apt-get clean
 
-EXPOSE 80
+ENV TERM xterm
+ENV GOPATH /usr/go
+RUN mkdir $GOPATH
+ENV PATH $GOPATH/bin:$PATH
 
-CMD [ "nginx", "-g", "daemon off;" ]  
+RUN go get github.com/yudai/gotty
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod 755 /entrypoint.sh
+
+
+EXPOSE 80
+ENTRYPOINT ["/entrypoint.sh"] 
